@@ -41,7 +41,7 @@ function normalizeVillainRange(villainRange) {
 
   async function fetchHeatmap() {
     try {
-      const res = await fetch("http://localhost:8000/heatmap", {
+      const res = await fetch("https://poker-trainer-backend.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -70,7 +70,7 @@ function normalizeVillainRange(villainRange) {
     setResult(null);
 
     try {
-      const res = await fetch("http://localhost:8000/range_equity", {
+      const res = await fetch("https://poker-trainer-backend.onrender.com/range_equity", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -100,7 +100,7 @@ function normalizeVillainRange(villainRange) {
   setResult(null);
 
   try {
-    const res = await fetch("http://localhost:8000/debug_heatmap");
+    const res = await fetch("https://poker-trainer-backend.onrender.com/debug_heatmap");
     if (!res.ok) throw new Error("Backend error");
 
     const data = await res.json();
@@ -118,7 +118,7 @@ async function loadDefaultEquities() {
   setResult(null);
 
   try {
-    const res = await fetch("http://localhost:8000/default_equities");
+    const res = await fetch("https://poker-trainer-backend.onrender.com/default_equities");
     if (!res.ok) throw new Error("Backend error");
 
     const data = await res.json();

@@ -64,7 +64,7 @@ const Graph = ({ setPage }) => {
 
     useEffect(() => {
         async function load() {
-            const res = await fetch("http://localhost:8000/load_sessions");
+            const res = await fetch("https://poker-trainer-backend.onrender.com/load_sessions");
             const data = await res.json();
 
             let running = 0;

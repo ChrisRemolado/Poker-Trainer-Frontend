@@ -33,7 +33,7 @@ export default function Bankroll({ setPage }) {
 
     async function loadSessions() {
       try {
-        const res = await fetch("http://localhost:8000/load_sessions");
+        const res = await fetch("https://poker-trainer-backend.onrender.com/load_sessions");
         const data = await res.json();
         setDummySessions(data);
       } catch (err) {
@@ -43,7 +43,7 @@ export default function Bankroll({ setPage }) {
 
     async function addSession(newSession) {
       try {
-        const res = await fetch("http://localhost:8000/add_session", {
+        const res = await fetch("https://poker-trainer-backend.onrender.com/add_session", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
