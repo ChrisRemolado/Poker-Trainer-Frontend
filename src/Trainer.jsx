@@ -42,15 +42,15 @@ function normalizeVillainRange(villainRange) {
   async function fetchHeatmap() {
     try {
       const res = await fetch("https://poker-trainer-backend.onrender.com/heatmap", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          hero_range: hero,
-          villain_range: villain,
-          board: board,
-          trials: 3000
-        })
-      });
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        hero_range: hero,
+        villain_range: villain,
+        board: board,
+        trials: 3000
+      })
+    });
 
       const data = await res.json();
       setHeatmap(data);   // <-- store backend heatmap
@@ -77,7 +77,7 @@ function normalizeVillainRange(villainRange) {
           hero_range: hero,
           villain_range: villain,
           board: board,
-          trials: 5000
+          trials: 100
         })
       });
 
@@ -146,7 +146,7 @@ async function loadDefaultEquities() {
         hero_range: hero,
         villain_range: villainRangeNormalized,
         board: board,
-        trials: 5
+        trials: 100
       })
     });
 
