@@ -48,7 +48,7 @@ function normalizeVillainRange(villainRange) {
         hero_range: hero,
         villain_range: villain,
         board: board,
-        trials: 3000
+        trials: 500
       })
     });
 
@@ -77,7 +77,7 @@ function normalizeVillainRange(villainRange) {
           hero_range: hero,
           villain_range: villain,
           board: board,
-          trials: 100
+          trials: 500
         })
       });
 
@@ -146,7 +146,7 @@ async function loadDefaultEquities() {
         hero_range: hero,
         villain_range: villainRangeNormalized,
         board: board,
-        trials: 100
+        trials: 500
       })
     });
 
