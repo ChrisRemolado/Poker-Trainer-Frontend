@@ -139,7 +139,7 @@ async function loadDefaultEquities() {
   const villainRangeNormalized = normalizeVillainRange(villainRange);
 
   try {
-    const res = await fetch("http://localhost:8000/heatmap", {
+    const res = await fetch("https://poker-trainer-backend.onrender.com/heatmap", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
