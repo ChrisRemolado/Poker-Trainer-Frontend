@@ -161,7 +161,7 @@ async function loadDefaultEquities() {
   return (
       <div className="wynn-trainer-screen">
         <div className="wynn-trainer-panel">
-          <h2 className="wynn-trainer-title">Poker Trainer</h2>
+          <h2 className="wynn-trainer-title">Lux Poker Trainer</h2>
           <label>Hero Range</label>
           <input
             placeholder="A2s+, KQo, 55+"
