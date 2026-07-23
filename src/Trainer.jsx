@@ -391,57 +391,53 @@ function RangeMatrix({ heatmap, villainRange, setVillainRange }) {
   setDragMode(null);
 }
 
+    return (
+      <div style={{ marginTop: "20px" }} onMouseUp={handleMouseUp}>
+        <h3>Range vs Range Matrix</h3>
 
-  return (
-    <div style={{ marginTop: "20px" }} onMouseUp={handleMouseUp}>
-      <h3>Range vs Range Matrix</h3>
+        {/* SCROLLABLE WRAPPER */}
+        <div className="matrix-scroll">
+          {/* MATRIX GRID */}
+          <div className="matrix-grid">
+            {ranks.map((r1, i) =>
+              ranks.map((r2, j) => {
+                const label = labelFor(i, j);
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(13, 1fr)",
-          gap: "2px",
-          marginTop: "10px",
-          userSelect: "none"
-        }}
-      >
-        {ranks.map((r1, i) =>
-          ranks.map((r2, j) => {
-            const label = labelFor(i, j);
-
-            return (
-              <div
-                key={label}
-                onMouseDown={(e) => handleMouseDown(e, i, j)}
-                onMouseEnter={() => handleMouseEnter(i, j)}
-                onMouseUp={handleMouseUp}
-                style={{
-                  background: getCellColor(i, j, label, heatmap, villainRange),
-                  color: "white",
-                  padding: "8px 0",
-                  textAlign: "center",
-                  fontSize: "12px",
-                  borderRadius: "3px",
-                  cursor: "pointer",
-                  transition: "0.15s"
-                }}
-              >
-                <div>{label}</div>
-                  <div style={{ fontSize: "9px", opacity: 0.8 }}>
-                    {heatmap && heatmap[label] !== undefined
-                      ? `${(heatmap[label] * 100).toFixed(2)}%`
-                      : "0%"}
+                return (
+                  <div
+                    key={label}
+                    onMouseDown={(e) => handleMouseDown(e, i, j)}
+                    onMouseEnter={() => handleMouseEnter(i, j)}
+                    onMouseUp={handleMouseUp}
+                    className="matrix-cell"
+                    style={{
+                      background: getCellColor(i, j, label, heatmap, villainRange),
+                      color: "white",
+                      padding: "8px 0",
+                      textAlign: "center",
+                      fontSize: "12px",
+                      borderRadius: "3px",
+                      cursor: "pointer",
+                      transition: "0.15s"
+                    }}
+                  >
+                    <div>{label}</div>
+                    <div style={{ fontSize: "9px", opacity: 0.8 }}>
+                      {heatmap && heatmap[label] !== undefined
+                        ? `${(heatmap[label] * 100).toFixed(2)}%`
+                        : "0%"}
+                    </div>
                   </div>
-              </div>
-            );
-          })
-        )}
-      </div>
+                );
+              })
+            )}
+          </div>
+        </div>
 
-      <div style={{ marginTop: "15px", fontSize: "14px" }}>
-        <strong>Selected:</strong>{" "}
-        {Object.keys(selected).filter(k => selected[k]).join(", ")}
+        <div style={{ marginTop: "15px", fontSize: "14px" }}>
+          <strong>Selected:</strong>{" "}
+          {Object.keys(selected).filter((k) => selected[k]).join(", ")}
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }

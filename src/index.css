@@ -10,6 +10,9 @@ html, body {
 }
 
 input {
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
   display: block;
   margin: 10px 0;
   padding: 8px;
@@ -41,8 +44,11 @@ button {
 
 /* Trainer Panel Container */
 .wynn-trainer-panel {
-  width: 80%;
-  max-width: 600px;
+  width: 35%;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 12px;
+  box-sizing: border-box;
   background: #0C1218; /* deep navy panel */
   padding: 25px;
   border-radius: 14px;
@@ -53,9 +59,21 @@ button {
   align-items: center;
 }
 
+/* Mobile (iPhone) */
+@media (max-width: 768px) {
+  .wynn-trainer-panel {
+    width: 100%;          /* full width */
+    padding: 20px;        /* slightly tighter padding */
+    border-radius: 10px;  /* softer corners on mobile */
+  }
+}
+
 /* Trainer Table (if you have one) */
 .wynn-trainer-table {
-  width: 100%;
+  width: 80%;
+  max-width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
   border-collapse: collapse;
   background: #0A0F14; /* deep navy/black */
   color: #e8e8e8;
@@ -93,10 +111,57 @@ button {
 }
 
 .range-matrix-container {
+    max-width: 100%;
+    overflow: hidden;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.matrix-scroll {
   width: 100%;
-  height: 500px;
-  min-width: 300px;
-  min-height: 300px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch; /* smooth iOS scroll */
+  padding-bottom: 8px;
+  touch-action: pan-x;
+}
+
+.matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(13, auto);
+  gap: 2px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.matrix-cell {
+  /* Responsive width based on viewport */
+  width: calc((100vw - 40px) / 13);
+  height: calc((100vw - 40px) / 13);
+
+  /* Wynn styling */
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  box-sizing: border-box;
+
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Desktop override: cap size so squares don’t look tiny */
+@media (min-width: 768px) {
+  .matrix-cell {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.matrix-cell div {
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 /* Bankroll History Screen */
@@ -120,8 +185,11 @@ button {
 }
 
 .wynn-bankroll-table-container {
-  width: 100%;
-  max-width: 900px;
+  width: 80%;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 12px;
+  box-sizing: border-box;
   background: #0C1218; /* deep navy panel */
   padding: 25px;
   border-radius: 14px;
@@ -130,6 +198,10 @@ button {
 }
 
 .wynn-blue-table {
+  max-width: 100%;
+  overflow: hidden;
+  padding: 12px;
+  box-sizing: border-box;
   width: 100%;
   border-collapse: collapse;
   background: #0A0F14; /* deep navy/black */
@@ -241,8 +313,11 @@ button {
 
 /* Panel Container */
 .wynn-graph-panel {
-  width: 100%;
-  max-width: 900px;
+  width: 80%;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 12px;
+  box-sizing: border-box;
   background: #0C1218; /* deep navy panel */
   padding: 25px;
   border-radius: 14px;
