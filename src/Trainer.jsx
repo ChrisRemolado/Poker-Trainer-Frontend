@@ -41,7 +41,7 @@ function normalizeVillainRange(villainRange) {
 
   async function fetchHeatmap() {
     try {
-      const res = await fetch("https://poker-trainer-backend.onrender.com", {
+      const res = await fetch("https://poker-trainer-backend.onrender.com/heatmap", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
