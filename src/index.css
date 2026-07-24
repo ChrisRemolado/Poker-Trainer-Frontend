@@ -9,6 +9,11 @@ html, body {
   height: 100%;
 }
 
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 input {
   max-width: 100%;
   overflow: hidden;
@@ -185,31 +190,38 @@ button {
 }
 
 .wynn-bankroll-table-container {
-  width: 80%;
   max-width: 100%;
   overflow: hidden;
-  padding: 12px;
   box-sizing: border-box;
-  background: #0C1218; /* deep navy panel */
-  padding: 25px;
+  max-height: 55vh;       /* table scrolls inside this box */
+  overflow-y: auto;       /* vertical scroll */
+  padding: 12px;
+  background: #0C1218;
   border-radius: 14px;
   box-shadow: 0 0 30px rgba(0,0,0,0.5);
-  border: 1px solid rgba(212, 175, 55, 0.12); /* subtle gold border */
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  width: 100%;
+  margin-bottom: 20px;    /* space before buttons */
+}
+
+.wynn-table-scroll-x {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
 }
 
 .wynn-blue-table {
-  max-width: 100%;
-  overflow: hidden;
   padding: 12px;
   box-sizing: border-box;
-  width: 100%;
-  border-collapse: collapse;
   background: #0A0F14; /* deep navy/black */
   color: #e8e8e8;
   border-radius: 14px;
   overflow: hidden;
   font-family: "Segoe UI", sans-serif;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.45);
+  min-width: 800px; /* forces horizontal scroll */
+  width: 100%;
+  border-collapse: collapse;
 }
 
 /* Header */
@@ -258,12 +270,15 @@ button {
 
 .wynn-button-row {
   display: flex;
-  justify-content: center;      /* centers the group */
   align-items: center;
   gap: 20px;                    /* equal spacing between buttons */
   width: 100%;
   max-width: 900px;             /* matches your panel width */
   margin-top: 30px;
+  justify-content: space-around;
+  padding: 12px;
+  background: #E9E4DA;
+  border-radius: 10px;
 }
 
 .wynn-button {
@@ -323,6 +338,13 @@ button {
   border-radius: 14px;
   box-shadow: 0 0 30px rgba(0,0,0,0.5);
   border: 1px solid rgba(212, 175, 55, 0.12); /* subtle gold border */
+}
+
+.wynn-graph-area-scroll {
+  max-height: 55vh;        /* chart never grows past this */
+  overflow-y: auto;        /* vertical scroll */
+  margin-bottom: 20px;     /* space before buttons */
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Graph Area */

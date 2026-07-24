@@ -93,28 +93,30 @@ const Graph = ({ setPage }) => {
   return (
     <div className="wynn-graph-screen">
       <h1 className="wynn-graph-title">Bankroll Graph</h1>
-
+        
       <div className="wynn-graph-panel">
-        <div className="wynn-graph-area">
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={sessions}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" />
-              <XAxis dataKey="x"
-                     tickFormatter={(value) => value.split("-")[0] + "-" + value.split("-")[1] + "-" + value.split("-")[2]} // show only the date
-                     stroke="#D4AF37" />
-              <YAxis stroke="#D4AF37" />
-              <Tooltip content={<CustomTooltip />} />
-              <Line
-                type="monotone"
-                dataKey="bankroll"
-                stroke="#D4AF37"
-                strokeWidth={3}
-                dot={{ r: 4, fill: "#0E4F7A", stroke: "#D4AF37", strokeWidth: 2 }}
-                activeDot={{ r: 6 }}
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
+          <div className="wynn-graph-area-scroll">
+            <div className="wynn-graph-area">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={sessions}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" />
+                  <XAxis datsaKey="x"
+                         tickFormatter={(value) => value.split("-")[0] + "-" + value.split("-")[1] + "-" + value.split("-")[2]} // show only the date
+                         stroke="#D4AF37" />
+                  <YAxis stroke="#D4AF37" />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Line
+                    type="monotone"
+                    dataKey="bankroll"
+                    stroke="#D4AF37"
+                    strokeWidth={3}
+                    dot={{ r: 4, fill: "#0E4F7A", stroke: "#D4AF37", strokeWidth: 2 }}
+                    activeDot={{ r: 6 }}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
       </div>
 
 

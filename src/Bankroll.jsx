@@ -133,32 +133,34 @@ const [profit, setProfit] = useState("");
       <h2 className="wynn-bankroll-title">Bankroll History</h2>
 
         <div className="wynn-bankroll-table-container">
-          <table className="wynn-blue-table">
-            <thead>
-                <tr>
-                    <th>Session</th>
-                    <th>Date & Time</th>
-                    <th>Duration</th>
-                    <th>Stakes</th>
-                    <th className="text-right">Profit</th>
-                    <th>Hourly</th>
-                </tr>
-            </thead>
-            <tbody>
-              {sessions.map(s => (
-                <tr key={s.id}>
-                  <td>{s.sessionName}</td>
-                  <td>{splitDateAndTime(s.startTime)[0]}, {to12Hour(splitDateAndTime(s.startTime)[1])}</td>
-                  <td>{decimalHoursToHM(s.durationHours)} hrs</td>
-                  <td>{toUSDStakes(s.stakes)}</td>
-                  <td className={s.profit >= 0 ? "wynn-profit-win" : "wynn-profit-loss"}>
-                      {toUSD(s.profit)}
-                  </td>
-                  <td>{toUSD(s.hourlyRate)}/hr</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+            <div className="wynn-table-scroll-x">
+              <table className="wynn-blue-table">
+                <thead>
+                    <tr>
+                        <th>Session</th>
+                        <th>Date & Time</th>
+                        <th>Duration</th>
+                        <th>Stakes</th>
+                        <th className="text-right">Profit</th>
+                        <th>Hourly</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {sessions.map(s => (
+                    <tr key={s.id}>
+                      <td>{s.sessionName}</td>
+                      <td>{splitDateAndTime(s.startTime)[0]}, {to12Hour(splitDateAndTime(s.startTime)[1])}</td>
+                      <td>{decimalHoursToHM(s.durationHours)} hrs</td>
+                      <td>{toUSDStakes(s.stakes)}</td>
+                      <td className={s.profit >= 0 ? "wynn-profit-win" : "wynn-profit-loss"}>
+                          {toUSD(s.profit)}
+                      </td>
+                      <td>{toUSD(s.hourlyRate)}/hr</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
 
         </div>
