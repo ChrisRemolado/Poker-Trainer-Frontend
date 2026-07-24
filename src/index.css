@@ -340,13 +340,6 @@ button {
   border: 1px solid rgba(212, 175, 55, 0.12); /* subtle gold border */
 }
 
-.wynn-graph-area-scroll {
-  max-height: 55vh;        /* chart never grows past this */
-  overflow-y: auto;        /* vertical scroll */
-  margin-bottom: 20px;     /* space before buttons */
-  -webkit-overflow-scrolling: touch;
-}
-
 /* Graph Area */
 .wynn-graph-area {
   width: 100%;
